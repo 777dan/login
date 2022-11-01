@@ -14,16 +14,27 @@
             $message2 = "Ошибка!";
         }
         if ($message1 != "Ошибка!" && $message2 != "Ошибка!") {
-            if ($_POST['Login'] == "admin") {
-                header("Location: admin.php?login=" . $_POST['Login'] . "&pass=" . $_POST['Pass']);
-            } else {
-                header("Location: user.php?login=" . $_POST['Login'] . "&pass=" . $_POST['Pass']);
+            include 'array.php';
+            foreach ($users as $log => $password) {
+                if ($_POST['Login'] == $log && $_POST['Pass'] == $password) {
+                    $type = "user";
+                    if ($log == "admin" && $password == "qwerty12") {
+                        $type = "admin";
+                    }
+                    header("Location: $type.php?login=" . $_POST['Login'] . "&pass=" . $_POST['Pass']);
+                    ob_end_flush();
+                }
+                // if ($_POST['Login'] == 'user' && $_POST['Pass'] == '1234user') {
+                //     header("Location: user.php?login=" . $_POST['Login'] . "&pass=" . $_POST['Pass']);
+                //     ob_end_flush();
+                // }
             }
         }
     }
     if (isset($_POST['Clear'])) {
         unset($_POST);
         header("Location:" . $_SERVER['PHP_SELF']);
+        ob_end_flush();
         exit;
     }
     ?>

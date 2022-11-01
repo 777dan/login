@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>Hello admin!</h1>
+    <?php ob_start(); ?>
     <?php 
     echo "You are admin with name: ".$_GET['login']." and with password: ".$_GET['pass'];
     ?>
