@@ -1,3 +1,4 @@
+<?php ob_start() ?>
 <!Doctype html>
 <link rel="stylesheet" href="style.css">
 <html>
