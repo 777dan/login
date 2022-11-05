@@ -39,7 +39,6 @@
         exit;
     }
     ?>
-    <?php ob_start(); ?>
     <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
         <input type="text" name="Login" placeholder="<?= $message1 ?>" /><br>
         <input type="text" name="Pass" placeholder="<?= $message2 ?>" /><br>
