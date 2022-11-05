@@ -9,7 +9,6 @@
 </head>
 <body>
     <h1>Hello user!</h1>
-    <?php ob_start(); ?>
     <?php 
     echo "You are ordinary user with name: ".$_GET['login']." and with password: ".$_GET['pass'];
     ?>
